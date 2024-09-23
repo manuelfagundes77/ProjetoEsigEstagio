@@ -34,3 +34,15 @@ Este projeto de gerenciador de tarefas foi desenvolvido a pedido da empresa ESIG
 5. **Execute a aplicação em um servidor de aplicações (como Apache Tomcat).**
 6. **Faça o restore do banco de dados Bdtarefas.sql  no seu  PostgreSQL Pgadmin** 
 7. **Abra o navegador e vá para:** http://localhost:8080/seu_projeto
+
+    # Olá, me chamo Manuel
+
+- 🌱 Atualmente estou aprendendo:  java, HTML, CSS, JavaScript.
+- ⚡ Curiosidade: Formado em Direito :p
+
+## contato
+
+<div>
+<a href="https://www.linkedin.com/in/manuel-fagundes-6855a1208/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 
+
+</div>
