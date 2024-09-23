@@ -32,4 +32,5 @@ Este projeto de gerenciador de tarefas foi desenvolvido a pedido da empresa ESIG
 3. **Importe o projeto no Eclipse.**
 4. **Configure a conexão com o banco de dados PostgreSQL.**
 5. **Execute a aplicação em um servidor de aplicações (como Apache Tomcat).**
-6. **Abra o navegador e vá para:** http://localhost:8080/seu_projeto
+6. **Faça o restore do banco de dados Bdtarefas.sql  no seu  PostgreSQL Pgadmin** 
+7. **Abra o navegador e vá para:** http://localhost:8080/seu_projeto
