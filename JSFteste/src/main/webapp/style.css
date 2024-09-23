@@ -1,0 +1,63 @@
+.selecoes{
+	display: flex; 
+	gap: 10px; 
+	margin-top:80px;
+	
+}
+
+h1 {
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase; /* Transforma o texto em maiúsculas */
+    font-size: 1,25rem;
+    margin: 0;
+    margin-bottom: 20px;
+    
+}
+
+.btn {
+	padding: 10px 20px;
+	
+	
+}
+
+.btn:hover{
+	cursor: pointer;
+}
+
+.btnFiltrar:hover{
+	cursor: pointer;
+}
+
+.btnCarregar:hover{
+	cursor: pointer;
+}
+
+.rodape {
+	display: flex;
+	gap: 100px;
+	align-items: center;
+	justify-content: center;
+	padding: 20px;
+	
+}
+
+
+
+.corpo{
+	height: 100vh;
+	 width: 100%; 
+	 display: flex; 
+	 background-color: #ececec;  
+	 justify-content: center; 
+	 align-items: center; 
+}
+
+.corpo2{
+	height: 100vh;
+	 width: 100%; 
+	 display: flex; 
+	 background-color: #ececec;  
+	 justify-content: center; 
+	 align-items: center; 
+}

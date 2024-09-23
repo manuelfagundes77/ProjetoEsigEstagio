@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core" >
+      
+      
+      
+      
+  <h:head>
+    <link rel="stylesheet" type="text/css" href="style.css" />  
+ </h:head> 
+ 
+ 
+<h:body  styleClass="corpo">
+ <h:form id="formes" style="background-color: rgb(205, 205, 205); padding: 20px" >
+ 	<h1 >Cadastrar Tarefas</h1>
+ 	
+ 	
+    <h:panelGrid columns="2">   
+	    <h:outputLabel for="titulo" value="Título:" />
+	    <h:inputText id="titulo" value="#{tarefaControle.tarefa.titulo}" required="true" requiredMessage="O campo Título é obrigatório.">
+	        <f:validateLength minimum="5" maximum="100" />
+	    </h:inputText>      
+    </h:panelGrid>
+     <h:message for="titulo" style="color:red; font-size: 10px" /> 
+    
+    <h:panelGrid class="descricao">
+	    <h:outputLabel for="descricao" value="Descrição:" />
+	    <h:inputTextarea id="descricao" value="#{tarefaControle.tarefa.descricao}" rows="10" cols="50" 
+	                     required="true" requiredMessage="O campo Descrição é obrigatório.">                       
+	        <f:validateLength minimum="5" maximum="500"  validatorMessage="A descrição deve ter entre 10 e 500 caracteres." />
+	    </h:inputTextarea>
+	    <h:message for="descricao" style="color:red;  font-size: 10px" />
+    </h:panelGrid>
+    
+    
+    <h:panelGroup class="selecoes" style="display: flex; gap: 10px; margin-top:20px">
+    
+	    <h:outputLabel for="responsavel">Responsável:</h:outputLabel>
+	    <h:selectOneMenu id="responsavel" value="#{tarefaControle.tarefa.responsavel}" required="true">
+	        <f:selectItem itemValue="" itemLabel="Selecione" noSelectionOption="true" />
+	        <f:selectItem itemValue="Pedro" itemLabel="Pedro" />
+	        <f:selectItem itemValue="Paulo" itemLabel="Paulo" />
+	        <f:selectItem itemValue="Maria" itemLabel="Maria" />
+	    </h:selectOneMenu>
+	            
+        <h:outputLabel for="prioridade">Prioridade:
+	        <h:selectOneMenu id="prioridade" value="#{tarefaControle.tarefa.prioridade}"  required="true">
+	         <f:selectItem itemValue="" itemLabel="Selecione" noSelectionOption="true" />
+	            <f:selectItem itemValue="ALTA" itemLabel="Alta" />
+	            <f:selectItem itemValue="MEDIA" itemLabel="Média" />
+	            <f:selectItem itemValue="BAIXA" itemLabel="Baixa" />
+	        </h:selectOneMenu> 
+        </h:outputLabel>              
+    </h:panelGroup>
+    
+   <h:panelGrid>
+   <h:message for="responsavel" style="color:red;  font-size: 10px" />
+   </h:panelGrid>
+   
+    <h:message for="prioridade" style="color:red;  font-size: 10px" />
+        
+    
+    <h:panelGroup  id="selecoes" style="display: flex; gap: 20px; margin-top: 20px">
+        <h:outputLabel for="deadline" value="Deadline:" />
+        <h:inputText id="deadline" value="#{tarefaControle.tarefa.deadline}" />
+    </h:panelGroup>
+    
+    <h:panelGroup styleClass="rodape" >
+	    <!-- Exibe a mensagem de sucesso aqui -->
+	   
+	    <h:commandButton  styleClass="btn" value="Cadastrar" action="#{tarefaControle.cadastrarTarefa}" />
+	    <h:link value="Ver Tarefas Cadastradas" outcome="cadastradas.xhtml" />
+    </h:panelGroup>
+    <h:messages id="messages" globalOnly="true" style="color: green; margin-top: 10px;" />
+    
+</h:form>
+ 
+  
+  
+</h:body>
+</html>

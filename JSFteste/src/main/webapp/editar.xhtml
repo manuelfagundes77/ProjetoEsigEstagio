@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>Editar Tarefa</title>
+</h:head>
+<h:body>
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel for="titulo" value="Título:" />
+            <h:inputText id="titulo" value="#{tarefaControle.tarefa.titulo}" required="true" />
+
+            <h:outputLabel for="descricao" value="Descrição:" />
+            <h:inputTextarea id="descricao" value="#{tarefaControle.tarefa.descricao}" required="true" />
+
+            <h:outputLabel for="responsavel" value="Responsável:" />
+			<h:selectOneMenu id="responsavel" value="#{tarefaControle.tarefa.responsavel}" required="true">
+			    <f:selectItem itemValue="Pedro" itemLabel="Pedro" />
+			    <f:selectItem itemValue="Paulo" itemLabel="Paulo" />
+			    <f:selectItem itemValue="Maria" itemLabel="Maria" />			    
+			</h:selectOneMenu>
+
+            <h:outputLabel for="prioridade" value="Prioridade:" />
+            <h:selectOneMenu id="prioridade" value="#{tarefaControle.tarefa.prioridade}">
+                <f:selectItem itemValue="ALTA" itemLabel="Alta" />
+                <f:selectItem itemValue="MEDIA" itemLabel="Média" />
+                <f:selectItem itemValue="BAIXA" itemLabel="Baixa" />
+            </h:selectOneMenu>
+
+            <h:outputLabel for="deadline" value="Deadline:" />
+            <h:inputText id="deadline" value="#{tarefaControle.tarefa.deadline}" required="true" />
+
+            <h:outputLabel for="situacao" value="Situação:" />
+            <h:inputText id="situacao" value="#{tarefaControle.tarefa.situacao}" readonly="true" />
+
+            <h:commandButton value="Salvar" action="#{tarefaControle.cadastrarTarefa}"  />
+          <h:commandButton value="Cancelar/voltar" action="cadastradas.xhtml" immediate="true" />
+          <h:commandButton value="Teste" action="#{tarefaControle.imprimirId()}" immediate="true" />
+
+
+        </h:panelGrid>
+    </h:form>
+</h:body>
+</html>

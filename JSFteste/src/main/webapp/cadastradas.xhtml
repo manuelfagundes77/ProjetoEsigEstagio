@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>Lista de Tarefas</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />  
+</h:head>
+
+<h:body styleClass="corpo2" >
+ 
+	
+	<h:form>
+	 <h:panelGrid columns="4" cellpadding="5">
+		 <h:outputLabel for="idInput" value="Buscar por ID:" />
+        <h:inputText id="idInput" value="#{tarefaControle.idFiltro}" />
+
+        <h:outputLabel for="descricaoInput" value="Buscar por Descrição:" />
+        <h:inputText id="descricaoInput" value="#{tarefaControle.descricaoFiltro}" />
+
+        <h:outputLabel for="responsavel" value="Responsável:" />
+        <h:selectOneMenu id="responsavel" value="#{tarefaControle.responsavelFiltro}" styleClass="btn">
+            <f:selectItem itemValue="" itemLabel="Selecione" noSelectionOption="true" />
+            <f:selectItem itemValue="Pedro" itemLabel="Pedro" />
+            <f:selectItem itemValue="Paulo" itemLabel="Paulo" />
+            <f:selectItem itemValue="Maria" itemLabel="Maria" />
+        </h:selectOneMenu>  
+
+		 <h:outputLabel for="situacao" value="Situação:"   />
+			<h:selectOneMenu id="situacao" value="#{tarefaControle.situacaoFiltro}" styleClass="btn">
+			    <f:selectItem itemValue="" itemLabel="Selecione" noSelectionOption="true" />
+			    <f:selectItem itemValue="Andamento" itemLabel="Em Andamento" />
+			    <f:selectItem itemValue="Concluida" itemLabel="Concluídas" />
+		</h:selectOneMenu>  
+
+        <h:commandButton  styleClass="btnFiltrar" value="Filtrar Buscar" action="#{tarefaControle.filtrarTarefas}" />
+    
+        
+    </h:panelGrid>
+	
+		<h:commandButton styleClass="btnCarregar" value="carregar tarefas"  action="#{tarefaControle.carregarTarefas}"></h:commandButton>
+
+    <h:dataTable value="#{tarefaControle.listaDeTarefas}" var="tarefa" border="1" style=" width: 800px;">
+            
+             <h:column>
+                <f:facet name="header">Id</f:facet>
+                #{tarefa.id}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Título</f:facet>
+                #{tarefa.titulo}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Descrição</f:facet>
+                #{tarefa.descricao}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Responsável</f:facet>
+                #{tarefa.responsavel}
+            </h:column>
+            <h:column>
+                <f:facet name="header">Prioridade</f:facet>
+                #{tarefa.prioridade}
+            </h:column>
+            
+            <h:column>
+		        <f:facet name="header">Situação</f:facet>
+		        #{tarefa.situacao}
+    		</h:column>
+            
+    		<h:column>
+        		<f:facet name="header">Ações</f:facet>
+        		
+           		 <h:commandButton value="Excluir" 
+                  actionListener="#{tarefaControle.excluirTarefa(tarefa.id)}" /> 
+                  
+                  <h:commandButton value="Concluir" 
+                     actionListener="#{tarefaControle.concluirTarefa(tarefa.id)}" /> 
+                   
+                <h:commandButton value="Editar" 
+                 action="#{tarefaControle.navegarParaEditar(tarefa.id)}" />
+                
+                   
+                     
+   			 </h:column>
+</h:dataTable>
+</h:form>
+
+
+	<h:link value="voltar" outcome="index.xhtml" />
+    
+</h:body>
+</html>
